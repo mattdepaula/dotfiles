@@ -1,5 +1,7 @@
 [tools]
 bun = "latest"
+direnv = "latest"
+fzf = "latest"
 java = "temurin"
 maven = "3.9.12"
 node = "24.13.0"
@@ -8,6 +10,8 @@ node = "24.13.0"
 "npm:create-docusaurus" = "latest"
 "npm:oclif" = "latest"
 "npm:strip-ansi-cli" = "latest"
+"pipx:powerline-status" = "latest"
+zoxide = "latest"
 rust = "nightly"
 
 [settings]
