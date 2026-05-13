@@ -1,0 +1,11 @@
+*.hprof
+.DS_Store
+/.mise/config.local.toml
+CLAUDE.local.md
+/.serena/
+/firebase-debug.log
+/.remember/
+
+**/.claude/settings.local.json
+
+.envrc

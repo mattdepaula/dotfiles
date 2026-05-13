@@ -1,0 +1,15 @@
+[tools]
+bun = "latest"
+java = "temurin"
+maven = "3.9.12"
+node = "24.13.0"
+"npm:@google/gemini-cli" = "latest"
+"npm:@openai/codex" = "latest"
+"npm:create-docusaurus" = "latest"
+"npm:oclif" = "latest"
+"npm:strip-ansi-cli" = "latest"
+rust = "nightly"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
+disable_tools = ["npm:@anthropic-ai/claude-code"]

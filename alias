@@ -1,0 +1,18 @@
+alias h='history | grep'
+alias x='exit'
+alias v='vim'
+alias vi='vim'
+alias vd='vim -d'
+alias grep='grep --color'
+
+
+alias cat='bat'
+alias lg='lazygit'
+alias web='gh pr view --web'
+alias j='just --global-justfile'
+alias simple-prompt="p10k display '1/*'=hide '1/left/prompt_char'=show"
+
+alias c='claude'
+alias cc='claude --continue'
+alias cr='claude --resume'
+

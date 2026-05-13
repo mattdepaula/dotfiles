@@ -1,3 +1,122 @@
-- clean: []
-- link: {}
-- shell: []
+- defaults:
+    link:
+      relink: true
+      force: false
+      backup: true
+    shell:
+      stdout: true
+      stderr: true
+
+- clean: ['~']
+
+- link:
+    # Shell/Bash configs
+    ~/.alias:
+    ~/.bash_profile:
+    ~/.bashrc:
+      force: true
+    # Tools
+    ~/.bin: bin
+    ~/.env:
+    ~/.ripgreprc:
+    ~/.claude: git-clones/mattdepaula/claude-code-prompts
+    # XDG configs
+    ~/.config/bat:
+      path: config/bat
+      create: true
+    ~/.config/direnv:
+      path: config/direnv
+      create: true
+    ~/.config/just:
+      path: config/just
+      create: true
+    ~/.config/mise:
+      path: config/mise
+      create: true
+    ~/.config/tmux/tmux.conf:
+      path: config/tmux/tmux.conf
+      create: true
+    ~/.config/tmux/plugins/tpm:
+      create: true
+      path: git-clones/tmux-plugins/tpm
+    ~/.config/git/config:
+      path: config/git/config
+      create: true
+    ~/.config/git/ignore:
+      path: config/git/ignore
+      create: true
+    ~/.config/git/attributes:
+      path: config/git/attributes
+      create: true
+    ~/.config/powerline:
+      path: config/powerline
+      create: true
+    # Vim
+    ~/.vim:
+    ~/.vimrc:
+    ~/.vim/pack/vendor/start/vim-just:
+      create: true
+      path: git-clones/NoahTheDuke/vim-just
+    # Zsh configs
+    ~/.zshrc:
+    ~/.zprofile:
+    ~/.zshenv:
+    ~/.p10k.zsh:
+    # Oh-my-zsh + plugins
+    ~/.oh-my-zsh: git-clones/ohmyzsh/ohmyzsh
+    ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions:
+      create: true
+      path: git-clones/zsh-users/zsh-autosuggestions
+    ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search:
+      create: true
+      path: git-clones/zsh-users/zsh-history-substring-search
+    ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting:
+      create: true
+      path: git-clones/zsh-users/zsh-syntax-highlighting
+    ~/.oh-my-zsh/custom/themes/powerlevel10k:
+      create: true
+      path: git-clones/romkatv/powerlevel10k
+
+- shell:
+    - command: git submodule update --init dotbot
+      description: 📦 Installing dotbot
+    - command: mise install
+      description: 🛠️ Installing mise tools
+    - command: >-
+          ./scripts/clone-or-update.sh git-clones
+          https://github.com/ohmyzsh/ohmyzsh.git
+      description: 📥 Cloning/updating ohmyzsh
+    - command: >-
+          ./scripts/clone-or-update.sh git-clones
+          https://github.com/zsh-users/zsh-autosuggestions
+      description: 📥 Cloning/updating zsh-autosuggestions
+    - command: >-
+          ./scripts/clone-or-update.sh git-clones
+          https://github.com/zsh-users/zsh-history-substring-search
+      description: 📥 Cloning/updating zsh-history-substring-search
+    - command: >-
+          ./scripts/clone-or-update.sh git-clones
+          https://github.com/zsh-users/zsh-syntax-highlighting.git
+      description: 📥 Cloning/updating zsh-syntax-highlighting
+    - command: >-
+          ./scripts/clone-or-update.sh git-clones
+          https://github.com/romkatv/powerlevel10k.git
+      description: 📥 Cloning/updating powerlevel10k
+    - command: >-
+          ./scripts/clone-or-update.sh git-clones
+          https://github.com/NoahTheDuke/vim-just.git
+      description: 📥 Cloning/updating vim-just
+    - command: >-
+          ./scripts/clone-or-update.sh git-clones
+          https://github.com/mattdepaula/claude-code-prompts.git
+      description: 📥 Cloning/updating claude-code-prompts
+    - command: >-
+          ./scripts/clone-or-update.sh git-clones
+          https://github.com/tmux-plugins/tpm
+      description: 📥 Cloning/updating tpm
+    - command: >-
+          which powerline || echo
+          'Warning: powerline not found on PATH'
+      stdout: true
+      stderr: true
+      description: Check for powerline binary

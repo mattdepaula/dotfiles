@@ -1,0 +1,11 @@
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.bin
+
+export EDITOR=vim
+export PAGER="less -RFX"
+export LESS="-RFX"
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+export DIRENV_LOG_FORMAT=
+
+export CLAUDE_CODE_NO_FLICKER=1
