@@ -23,7 +23,6 @@
     ~/.ripgreprc:
     ~/.claude:
       path: git-clones/mattdepaula/claude-config
-      force: true
     # XDG configs
     ~/.config/bat:
       path: config/bat
@@ -87,6 +86,8 @@
       description: 📦 Installing dotbot
     - command: mise install
       description: 🛠️ Installing mise tools
+    - command: curl -fsSL https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/install.sh | bash -s -- FiraCode
+      description: 🔤 Installing FiraCode Nerd Font
     # Zsh
     - command: >-
           ./scripts/clone-or-update.sh git-clones
