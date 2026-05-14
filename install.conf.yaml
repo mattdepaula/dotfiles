@@ -143,13 +143,13 @@
 
 # Register Claude plugin marketplaces from local clones
 - shell:
-    - command: claude plugin marketplace add git-clones/addyosmani/agent-skills
+    - command: claude plugin marketplace add "$(pwd)/git-clones/addyosmani/agent-skills"
       description: 🔌 Adding addy-agent-skills marketplace
-    - command: claude plugin marketplace add git-clones/anthropics/claude-plugins-official
+    - command: claude plugin marketplace add "$(pwd)/git-clones/anthropics/claude-plugins-official"
       description: 🔌 Adding claude-plugins-official marketplace
-    - command: claude plugin marketplace add git-clones/trailofbits/skills-curated
+    - command: claude plugin marketplace add "$(pwd)/git-clones/trailofbits/skills-curated"
       description: 🔌 Adding skills-curated marketplace
-    - command: claude plugin marketplace add git-clones/motlin/claude-code-plugins
+    - command: claude plugin marketplace add "$(pwd)/git-clones/motlin/claude-code-plugins"
       description: 🔌 Adding motlin/claude-code-plugins marketplace
 
 # Install Claude plugins from registered marketplaces
