@@ -21,7 +21,9 @@
     ~/.bin: bin
     ~/.env:
     ~/.ripgreprc:
-    ~/.claude: git-clones/mattdepaula/claude-code-prompts
+    ~/.claude:
+      path: git-clones/mattdepaula/claude-code-prompts
+      force: true
     # XDG configs
     ~/.config/bat:
       path: config/bat
@@ -130,10 +132,6 @@
       description: 📥 Cloning/updating addyosmani/agent-skills
     - command: >-
           ./scripts/clone-or-update.sh git-clones
-          https://github.com/anthropics/claude-plugins-official.git
-      description: 📥 Cloning/updating anthropics/claude-plugins-official
-    - command: >-
-          ./scripts/clone-or-update.sh git-clones
           https://github.com/trailofbits/skills-curated.git
       description: 📥 Cloning/updating trailofbits/skills-curated
     - command: >-
@@ -145,7 +143,7 @@
 - shell:
     - command: claude plugin marketplace add "$(pwd)/git-clones/addyosmani/agent-skills"
       description: 🔌 Adding addy-agent-skills marketplace
-    - command: claude plugin marketplace add "$(pwd)/git-clones/anthropics/claude-plugins-official"
+    - command: claude plugin marketplace add "anthropics/claude-plugins-official"
       description: 🔌 Adding claude-plugins-official marketplace
     - command: claude plugin marketplace add "$(pwd)/git-clones/trailofbits/skills-curated"
       description: 🔌 Adding skills-curated marketplace
