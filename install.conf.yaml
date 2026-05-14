@@ -114,9 +114,31 @@
           ./scripts/clone-or-update.sh git-clones
           https://github.com/tmux-plugins/tpm
       description: 📥 Cloning/updating tpm
+    - command: ./scripts/patch-tmux-resurrect.sh
+      description: 'Patching tmux-resurrect with PR #541 (symlink race fix)'
+
+- shell:
     - command: >-
-          which powerline || echo
-          'Warning: powerline not found on PATH'
-      stdout: true
-      stderr: true
-      description: Check for powerline binary
+          claude plugin marketplace add addyosmani/agent-skills &&
+          claude plugin install agent-skills@addy-agent-skills
+      description: 🔌 Installing addyosmani/agent-skills
+    - command: claude plugin marketplace add anthropics/claude-plugins-official
+      description: 🔌 Adding claude-plugins-official marketplace
+    - command: claude plugin install chrome-devtools-mcp@claude-plugins-official
+      description: 🔌 Installing chrome-devtools-mcp
+    - command: claude plugin install claude-md-management@claude-plugins-official
+      description: 🔌 Installing claude-md-management
+    - command: claude plugin install code-simplifier@claude-plugins-official
+      description: 🔌 Installing code-simplifier
+    - command: claude plugin install hookify@claude-plugins-official
+      description: 🔌 Installing hookify
+    - command: claude plugin install plugin-dev@claude-plugins-official
+      description: 🔌 Installing plugin-dev
+    - command: claude plugin install skill-creator@claude-plugins-official
+      description: 🔌 Installing skill-creator
+    - command: claude plugin marketplace add trailofbits/skills-curated
+      description: 🔌 Adding skills-curated marketplace
+    - command: claude plugin install humanizer@skills-curated
+      description: 🔌 Installing humanizer
+    - command: claude plugin install skill-extractor@skills-curated
+      description: 🔌 Installing skill-extractor
