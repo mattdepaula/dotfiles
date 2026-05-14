@@ -133,10 +133,6 @@
       description: 📥 Cloning/updating addyosmani/agent-skills
     - command: >-
           ./scripts/clone-or-update.sh git-clones
-          https://github.com/trailofbits/skills-curated.git
-      description: 📥 Cloning/updating trailofbits/skills-curated
-    - command: >-
-          ./scripts/clone-or-update.sh git-clones
           https://github.com/motlin/claude-code-plugins.git
       description: 📥 Cloning/updating motlin/claude-code-plugins
 
@@ -146,8 +142,6 @@
       description: 🔌 Adding addy-agent-skills marketplace
     - command: claude plugin marketplace add "anthropics/claude-plugins-official"
       description: 🔌 Adding claude-plugins-official marketplace
-    - command: claude plugin marketplace add "$(pwd)/git-clones/trailofbits/skills-curated"
-      description: 🔌 Adding skills-curated marketplace
     - command: claude plugin marketplace add "$(pwd)/git-clones/motlin/claude-code-plugins"
       description: 🔌 Adding motlin/claude-code-plugins marketplace
 
@@ -167,7 +161,3 @@
       description: 🔌 Installing plugin-dev
     - command: claude plugin install skill-creator@claude-plugins-official
       description: 🔌 Installing skill-creator
-    - command: claude plugin install humanizer@skills-curated
-      description: 🔌 Installing humanizer
-    - command: claude plugin install skill-extractor@skills-curated
-      description: 🔌 Installing skill-extractor
