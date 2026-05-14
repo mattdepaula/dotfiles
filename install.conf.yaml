@@ -134,13 +134,18 @@
       description: 📥 Cloning/updating motlin/claude-code-plugins
 
 - shell:
-    - command: >-
-          claude plugin marketplace add git-clones/addyosmani/agent-skills &&
-          claude plugin install agent-skills@addy-agent-skills
-      description: 🔌 Installing addyosmani/agent-skills
-    - command: >-
-          claude plugin marketplace add git-clones/anthropics/claude-plugins-official
+    - command: claude plugin marketplace add git-clones/addyosmani/agent-skills
+      description: 🔌 Adding addy-agent-skills marketplace
+    - command: claude plugin marketplace add git-clones/anthropics/claude-plugins-official
       description: 🔌 Adding claude-plugins-official marketplace
+    - command: claude plugin marketplace add git-clones/trailofbits/skills-curated
+      description: 🔌 Adding skills-curated marketplace
+    - command: claude plugin marketplace add git-clones/motlin/claude-code-plugins
+      description: 🔌 Adding motlin/claude-code-plugins marketplace
+
+- shell:
+    - command: claude plugin install agent-skills@addy-agent-skills
+      description: 🔌 Installing agent-skills
     - command: claude plugin install chrome-devtools-mcp@claude-plugins-official
       description: 🔌 Installing chrome-devtools-mcp
     - command: claude plugin install claude-md-management@claude-plugins-official
@@ -153,10 +158,6 @@
       description: 🔌 Installing plugin-dev
     - command: claude plugin install skill-creator@claude-plugins-official
       description: 🔌 Installing skill-creator
-    - command: claude plugin marketplace add git-clones/trailofbits/skills-curated
-      description: 🔌 Adding skills-curated marketplace
-    - command: claude plugin marketplace add git-clones/motlin/claude-code-plugins
-      description: 🔌 Adding motlin/claude-code-plugins marketplace
     - command: claude plugin install humanizer@skills-curated
       description: 🔌 Installing humanizer
     - command: claude plugin install skill-extractor@skills-curated
