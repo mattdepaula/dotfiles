@@ -128,6 +128,10 @@
           ./scripts/clone-or-update.sh git-clones
           https://github.com/trailofbits/skills-curated.git
       description: 📥 Cloning/updating trailofbits/skills-curated
+    - command: >-
+          ./scripts/clone-or-update.sh git-clones
+          https://github.com/motlin/claude-code-plugins.git
+      description: 📥 Cloning/updating motlin/claude-code-plugins
 
 - shell:
     - command: >-
@@ -151,6 +155,8 @@
       description: 🔌 Installing skill-creator
     - command: claude plugin marketplace add git-clones/trailofbits/skills-curated
       description: 🔌 Adding skills-curated marketplace
+    - command: claude plugin marketplace add git-clones/motlin/claude-code-plugins
+      description: 🔌 Adding motlin/claude-code-plugins marketplace
     - command: claude plugin install humanizer@skills-curated
       description: 🔌 Installing humanizer
     - command: claude plugin install skill-extractor@skills-curated
