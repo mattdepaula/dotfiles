@@ -22,7 +22,7 @@
     ~/.env:
     ~/.ripgreprc:
     ~/.claude:
-      path: git-clones/mattdepaula/claude-code-prompts
+      path: git-clones/mattdepaula/claude-config
       force: true
     # XDG configs
     ~/.config/bat:
@@ -116,8 +116,8 @@
     # Claude
     - command: >-
           ./scripts/clone-or-update.sh git-clones
-          https://github.com/mattdepaula/claude-code-prompts.git
-      description: 📥 Cloning/updating claude-code-prompts
+          https://github.com/mattdepaula/claude-config.git
+      description: 📥 Cloning/updating claude-config
     # Tmux
     - command: >-
           ./scripts/clone-or-update.sh git-clones
