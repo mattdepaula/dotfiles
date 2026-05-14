@@ -131,13 +131,11 @@
 
 - shell:
     - command: >-
-          cd git-clones/addyosmani/agent-skills &&
-          claude plugin marketplace add "$(pwd)" &&
+          claude plugin marketplace add git-clones/addyosmani/agent-skills &&
           claude plugin install agent-skills@addy-agent-skills
       description: 🔌 Installing addyosmani/agent-skills
     - command: >-
-          cd git-clones/anthropics/claude-plugins-official &&
-          claude plugin marketplace add "$(pwd)"
+          claude plugin marketplace add git-clones/anthropics/claude-plugins-official
       description: 🔌 Adding claude-plugins-official marketplace
     - command: claude plugin install chrome-devtools-mcp@claude-plugins-official
       description: 🔌 Installing chrome-devtools-mcp
@@ -151,9 +149,7 @@
       description: 🔌 Installing plugin-dev
     - command: claude plugin install skill-creator@claude-plugins-official
       description: 🔌 Installing skill-creator
-    - command: >-
-          cd git-clones/trailofbits/skills-curated &&
-          claude plugin marketplace add "$(pwd)"
+    - command: claude plugin marketplace add git-clones/trailofbits/skills-curated
       description: 🔌 Adding skills-curated marketplace
     - command: claude plugin install humanizer@skills-curated
       description: 🔌 Installing humanizer
