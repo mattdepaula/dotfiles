@@ -7,8 +7,10 @@
       stdout: true
       stderr: true
 
+# Remove broken symlinks from home directory
 - clean: ['~']
 
+# Symlink dotfiles into place
 - link:
     # Shell/Bash configs
     ~/.alias:
@@ -77,11 +79,13 @@
       create: true
       path: git-clones/romkatv/powerlevel10k
 
+# Clone external repos and install tools
 - shell:
     - command: git submodule update --init dotbot
       description: 📦 Installing dotbot
     - command: mise install
       description: 🛠️ Installing mise tools
+    # Zsh
     - command: >-
           ./scripts/clone-or-update.sh git-clones
           https://github.com/ohmyzsh/ohmyzsh.git
@@ -102,20 +106,24 @@
           ./scripts/clone-or-update.sh git-clones
           https://github.com/romkatv/powerlevel10k.git
       description: 📥 Cloning/updating powerlevel10k
+    # Vim
     - command: >-
           ./scripts/clone-or-update.sh git-clones
           https://github.com/NoahTheDuke/vim-just.git
       description: 📥 Cloning/updating vim-just
+    # Claude
     - command: >-
           ./scripts/clone-or-update.sh git-clones
           https://github.com/mattdepaula/claude-code-prompts.git
       description: 📥 Cloning/updating claude-code-prompts
+    # Tmux
     - command: >-
           ./scripts/clone-or-update.sh git-clones
           https://github.com/tmux-plugins/tpm
       description: 📥 Cloning/updating tpm
     - command: ./scripts/patch-tmux-resurrect.sh
       description: 'Patching tmux-resurrect with PR #541 (symlink race fix)'
+    # Claude plugin marketplaces
     - command: >-
           ./scripts/clone-or-update.sh git-clones
           https://github.com/addyosmani/agent-skills.git
@@ -133,6 +141,7 @@
           https://github.com/motlin/claude-code-plugins.git
       description: 📥 Cloning/updating motlin/claude-code-plugins
 
+# Register Claude plugin marketplaces from local clones
 - shell:
     - command: claude plugin marketplace add git-clones/addyosmani/agent-skills
       description: 🔌 Adding addy-agent-skills marketplace
@@ -143,6 +152,7 @@
     - command: claude plugin marketplace add git-clones/motlin/claude-code-plugins
       description: 🔌 Adding motlin/claude-code-plugins marketplace
 
+# Install Claude plugins from registered marketplaces
 - shell:
     - command: claude plugin install agent-skills@addy-agent-skills
       description: 🔌 Installing agent-skills
