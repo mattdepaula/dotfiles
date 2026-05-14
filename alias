@@ -6,6 +6,7 @@ alias vd='vim -d'
 alias grep='grep --color'
 
 
+alias rm='trash'
 alias cat='bat'
 alias lg='lazygit'
 alias web='gh pr view --web'
