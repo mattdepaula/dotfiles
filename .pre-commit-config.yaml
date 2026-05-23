@@ -49,3 +49,10 @@ repos:
         language: system
         types_or: [bash, sh]
         exclude: "^(dotbot/|git-clones/)"
+
+      - id: shfmt
+        name: shfmt
+        entry: shfmt -w
+        language: system
+        types_or: [bash, sh]
+        exclude: "^(dotbot/|git-clones/)"
