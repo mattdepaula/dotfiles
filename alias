@@ -17,7 +17,7 @@ alias c='claude'
 alias cc='claude --continue'
 alias cr='claude --resume'
 
-gdf() {
+gdiff() {
   preview="git diff $@ --color=always -- {-1}"
   git diff $@ --name-only | fzf -m --ansi --preview $preview
 }
