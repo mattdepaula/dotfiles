@@ -8,14 +8,20 @@
 set -euo pipefail
 
 is_installed() {
-  { command -v fc-list >/dev/null 2>&1 && fc-list | grep -qi "FiraCode Nerd Font"; } ||
-    ls ~/Library/Fonts/FiraCode*Nerd* >/dev/null 2>&1
+	{ command -v fc-list >/dev/null 2>&1 && fc-list | grep -qi "FiraCode Nerd Font"; } ||
+		ls ~/Library/Fonts/FiraCode*Nerd* >/dev/null 2>&1
 }
 
 main() {
-  command -v nix-env >/dev/null 2>&1 || { echo "nix-env not found, skipping"; exit 0; }
-  is_installed && { echo "FiraCode Nerd Font already installed, skipping"; exit 0; }
-  nix-env -iA nixpkgs.nerd-fonts.fira-code
+	command -v nix-env >/dev/null 2>&1 || {
+		echo "nix-env not found, skipping"
+		exit 0
+	}
+	is_installed && {
+		echo "FiraCode Nerd Font already installed, skipping"
+		exit 0
+	}
+	nix-env -iA nixpkgs.nerd-fonts.fira-code
 }
 
 main "$@"

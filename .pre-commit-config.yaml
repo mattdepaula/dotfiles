@@ -54,5 +54,5 @@ repos:
         name: shfmt
         entry: shfmt -w
         language: system
-        types_or: [bash, sh]
+        files: "(^(bashrc|bash_profile)|\\.sh$)"
         exclude: "^(dotbot/|git-clones/)"

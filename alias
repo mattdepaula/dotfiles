@@ -18,6 +18,15 @@ alias cc='claude --continue'
 alias cr='claude --resume'
 
 gdiff() {
-  preview="git diff $@ --color=always -- {-1}"
-  git diff $@ --name-only | fzf -m --ansi --preview $preview
+  local preview="
+    if git ls-files --error-unmatch {-1} 2>/dev/null; then
+      git diff $@ --color=always -- {-1}
+    else
+      git diff --no-index --color=always /dev/null {-1}
+    fi
+  "
+  {
+    git diff "$@" --name-only
+    git ls-files --others --exclude-standard
+  } | sort -u | fzf -m --ansi --preview "$preview"
 }
