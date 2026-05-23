@@ -88,6 +88,8 @@
       description: 🛠️ Installing mise tools
     - command: curl -fsSL https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/install.sh | bash -s -- FiraCode
       description: 🔤 Installing FiraCode Nerd Font
+    - command: ./scripts/install-firacode-nix.sh
+      description: 🔤 Installing FiraCode Nerd Font (Regular + Mono) via nix
     # Zsh
     - command: >-
           ./scripts/clone-or-update.sh git-clones
