@@ -1,6 +1,4 @@
-" ⚠️ This comment will override any vim settings when editing this file.  These
-" particular settings cause vim to use tabs not spaces
-" vim: tabstop=4:shiftwidth=4:autoindent:smartindent:noexpandtab:softtabstop=0:cino=g0
+" vim: tabstop=4:shiftwidth=4:autoindent:smartindent:expandtab:softtabstop=4:cino=g0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ⚙️ General
@@ -9,13 +7,6 @@
 " This must be first, because it changes other options as side effect
 set nocompatible
 
-" 🔌 Use pathogen to easily modify the runtime path to include all plugins under
-" " the ~/.vim/bundle directory
-filetype off " force reloading *after* pathogen loaded
-call pathogen#helptags()
-execute pathogen#infect()
-
-" 📋 Enable loading the plugin files and indent file for specific file types
 filetype plugin indent on
 
 " 📋 Number of lines of history to remember
@@ -47,8 +38,8 @@ set backspace=indent,eol,start
 set autowrite
 
 " 🌐 Affects the output of :TOhtml
-:let html_use_css = 1
-:let use_xhtml = 1
+let html_use_css = 1
+let use_xhtml = 1
 
 " 🗄️ store status information
 set viminfo='1000,f1,<500,%
@@ -87,6 +78,8 @@ set hlsearch
 " 🔍 Use emacs-like incremental search (find as you type)
 set incsearch
 
+set scrolloff=8
+
 " 📦 Strings to use in 'list' mode.  Enable list mode with :set list
 set listchars=tab:>-,trail:_,eol:$,nbsp:%,extends:#
 
@@ -100,6 +93,16 @@ set ruler
 " 🏷️ Change the terminal's title
 set title
 
+set number
+
+set mouse=a
+
+if has('unnamedplus')
+  set clipboard=unnamed,unnamedplus
+else
+  set clipboard=unnamed
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 📝 Text formatting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -109,10 +112,6 @@ set shiftwidth=4
 set autoindent
 set smartindent
 
-" 📠 Tabs, not spaces!
-" set noexpandtab
-
-" 🤷 But just in case I'm working on a file with a more evil form of indentation
 set expandtab
 
 " 🏭 C-indenting option to make public and private labels not increase the
@@ -125,25 +124,25 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 " ⌨️ Key mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 👁️ Toggle display of unprintable characters
-:map <F3> :set list!<CR>
+map <F3> :set list!<CR>
 
 " 🔍 Toggle search highlighting
-:map <F5> :set hls!<bar>set hls?<CR>
+map <F5> :set hls!<bar>set hls?<CR>
 
 " 📜 Ignore whitespace in diff views (vim -d file1 file2)
-:map <F9> :set diffopt+=iwhite<CR>
+map <F9> :set diffopt+=iwhite<CR>
 
 " 📋 Toggle paste mode.  Everything is inserted literally - no indending
 set pastetoggle=<F10>
 
 " 🔢 Toggle line numbers
-:map <F12> :set number!<CR>
+map <F12> :set number!<CR>
 
-" ↕️ Ctrl j/k to navigate horizontal splits
+" ↕️ Ctrl j/k to navigate horizontal splits; wmh=0 collapses inactive splits to minimum
 map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
 set wmh=0
-" ↔️ Ctrl h/l to navigate vertical splits
+" ↔️ Ctrl h/l to navigate vertical splits; wmw=0 collapses inactive splits to minimum
 map <C-H> <C-W>h<C-W><bar>
 map <C-L> <C-W>l<C-W><bar>
 set wmw=0
@@ -189,38 +188,13 @@ autocmd BufReadPost *
 " 🎯 Load matchit (% to bounce from do to end, etc.)
 runtime! macros/matchit.vim
 
-" 💳 Tab completion
-function InsertTabWrapper()
-	let col = col('.') - 1
-	if !col || getline('.')[col - 1] !~ '\k'
-		return "\<tab>"
-	else
-		return "\<c-p>"
-	endif
-endfunction
-
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-
-" 🏷️ toggle the taglist window.
-nnoremap <silent> <F8> :TlistToggle<CR>
-
-" ➡️ cursor moves to the taglist window after opening the taglist window
-let Tlist_GainFocus_On_ToggleOpen = 1
-
-" 🚪 exit Vim if only the taglist window is currently opened
-let Tlist_Exit_OnlyWindow = 1
-
-" 🏷️ For use with ctags - most people won't need this
 set tags=./tags,tags,../tags,../../tags,../../../tags,../../../../tags
 
 " 🔀 Start diff mode with vertical splits (unless explicitly specified otherwise).
 set diffopt+=vertical
 
 " 🟡 Highlight whitespace at the end of the line in ugly yellow
-match Todo /\s\+$/
-
-" 🔠 Don't ignore case in search patterns.
-set noignorecase
+autocmd VimEnter,WinEnter * call matchadd('Todo', '\s\+$')
 
 " 📊 tell VIM to always put a status line in, even if there is only one window
 set laststatus=2
