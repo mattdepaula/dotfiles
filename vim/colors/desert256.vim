@@ -336,4 +336,3 @@ else
 endif
 
 " vim: set fdl=0 fdm=marker:
-

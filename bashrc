@@ -72,4 +72,3 @@ PS1=$TITLEBAR$PROMPT
 stty erase 
 
 source ~/.bash_completion.d/git-completion.bash
-
