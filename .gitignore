@@ -1,6 +1,7 @@
 git-clones/
 vim/pack/
 
+config/claude/settings.json
 config/claude/settings.local.json
 config/claude/backups/
 config/claude/bash-commands.log
@@ -30,3 +31,4 @@ config/claude/statsig/
 config/claude/tasks/
 config/claude/teams/
 config/claude/todos/
+config/claude/.last-cleanup

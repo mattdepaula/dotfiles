@@ -1,4 +1,4 @@
 {
 	"globs": ["**/*.md"],
-	"ignores": ["dotbot/**", "git-clones/**", "vim/pack/**"],
+	"ignores": ["dotbot/**", "git-clones/**", "vim/pack/**", "config/claude/cache/**", "config/claude/plugins/**"],
 }

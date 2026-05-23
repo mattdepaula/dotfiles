@@ -82,12 +82,16 @@
 
 # Clone external repos and install tools
 - shell:
+    - command: >-
+        [ -f config/claude/settings.json ] ||
+        cp config/claude/settings.template.json config/claude/settings.json
+      description: ⚙️ Initializing Claude settings from template
     - command: git submodule update --init dotbot
       description: 📦 Installing dotbot
     - command: mise install
       description: 🛠️ Installing mise tools
-    - command: curl -fsSL https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/install.sh | bash -s -- FiraCode
-      description: 🔤 Installing FiraCode Nerd Font
+    - command: ls ~/Library/Fonts/FiraCode*Nerd* &>/dev/null || brew install --cask font-fira-code-nerd-font
+      description: 🔤 Installing FiraCode Nerd Font via Homebrew
     - command: ./scripts/install-firacode-nix.sh
       description: 🔤 Installing FiraCode Nerd Font (Regular + Mono) via nix
     # Zsh
@@ -135,9 +139,9 @@
 
 # Register Claude plugin marketplaces from local clones
 - shell:
-    - command: claude plugin marketplace add "$(pwd)/git-clones/addyosmani/agent-skills"
+    - command: claude plugin marketplace add "$HOME/Tools/dotfiles/git-clones/addyosmani/agent-skills"
       description: 🔌 Adding addy-agent-skills marketplace
     - command: claude plugin marketplace add "anthropics/claude-plugins-official"
       description: 🔌 Adding claude-plugins-official marketplace
-    - command: claude plugin marketplace add "$(pwd)/git-clones/motlin/claude-code-plugins"
+    - command: claude plugin marketplace add "$HOME/Tools/dotfiles/git-clones/motlin/claude-code-plugins"
       description: 🔌 Adding motlin/claude-code-plugins marketplace

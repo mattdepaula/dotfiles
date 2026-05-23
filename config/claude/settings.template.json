@@ -89,10 +89,8 @@
   },
   "autoUpdatesChannel": "latest",
   "tui": "fullscreen",
-  "skipDangerousModePermissionPrompt": true,
   "theme": "dark-daltonized",
   "verbose": true,
-  "preferredNotifChannel": "ghostty",
   "teammateMode": "auto",
   "voiceEnabled": true
 }
